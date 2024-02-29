@@ -6,6 +6,42 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <link href="/css/commons/header/fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+    <link href="/css/commons/header/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/commons/header/animate.css" rel="stylesheet">
+    <link href="/css/commons/header/bootsnav.css" rel="stylesheet">
+    <link href="/css/commons/header/overwrite.css" rel="stylesheet">
+    <link href="/css/commons/header/style.css" rel="stylesheet">
+    <link href="/css/commons/header/skins/color.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
+    <style type="text/css">
+        @import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);
+    </style>
+    <!--if lt IE 9
+    script(src='commons/header/js/html5shiv.min.js')
+    script(src='commons/header/js/respond.min.js')
+    
+    --><!--GotoTop的CSS-->
+    <link rel="stylesheet" type="text/css" href="/css/commons/gototop/style.css"><!--footer的CSS-->
+    <link rel="stylesheet" type="text/css" href="/css/commons/footer/footer.css">
+    <!-- 每頁title的CSS-->
+    <link rel="stylesheet" type="text/css" href="/css/commons/else/title.css">
+    <!-- @if(Request::is("/")) -->
+    <!-- 首頁AD的CSS-->
+    <link href="/css/index/effects.min.css" rel="stylesheet">
+    <link href="/css/index/index.css" rel="stylesheet">
+    <!-- video的CSS-->
+    <link href="/css/index/video.css" rel="stylesheet">
+    
+
+    <!-- @if(Request::is("product","product/*")) -->
+    <link href="/css/product/jquery.bxslider.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/product/web_product.css">
+    <link rel="stylesheet" href="/css/product/product.css">
+    <!-- 關於好茶 CSS-->
+    <link rel="stylesheet" href="/css/product/product_int.css">
+    <link rel="stylesheet" href="/css/product/video.css"><!--ScrollWatch滾動淡入-->
+    
   </head>
   <body>
     <noscript>
@@ -13,5 +49,32 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script>
+      window.jQuery || document.write('<script src="/js/commons/header/jquery-1.11.0.min.js "><\/script>')
+  </script>
+  <script src="/js/commons/header/bootstrap.min.js "></script>
+  <script src="/js/commons/header/bootsnav_2.js "></script>
+  <!--GotoTop的JS-->
+  <script src="/js/commons/gototop/jquery.toTop.min.js"></script>
+  <script>
+      jQuery(function($) {
+          // Plugin activation (basic)
+          // $('.to-top').toTop();
+          // Plugin activation with options
+          $('.to-top').toTop({
+              //options with default values
+              autohide: true, //boolean 'true' or 'false'
+              offset: 250, //numeric value (as pixels) for scrolling length from top to hide automatically
+              speed: 650, //numeric value (as mili-seconds) for duration
+              right: 20, //numeric value (as pixels) for position from right
+              bottom: 60 //numeric value (as pixels) for position from bottom
+          });
+      });
+  </script>
+  <!-- @if(Request::is("product","product/*")) -->
+  <script src="/js/product/jquery-2.1.3.min.js"></script>
+  <script src="/js/product/jquery.bxslider.js"></script>
+  <script type="text/javascript" src="/js/product/jquery.elevateZoom-3.0.8.min.js"></script>
+  <script src="/js/product/web_product.js"></script>
   </body>
 </html>
