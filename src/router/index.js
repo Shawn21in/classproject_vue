@@ -27,6 +27,11 @@ const routes = [
         name: "type_layer1",
         component: () => import("../views/Type_layer1.vue"),
       },
+      {
+        path: "productList/:type_layer1",
+        name: "productList",
+        component: () => import("../views/ProductList.vue"),
+      },
     ],
   },
 ];

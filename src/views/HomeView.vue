@@ -20,7 +20,7 @@
         :key="item.id"
       >
         <div class="hover ehover13">
-          <a @click="detail(item.type_layer1, item.id)"
+          <a href="#" @click="detail(item.type_layer1, item.id)"
             ><img
               :src="url + 'images/product/' + item.photo"
               class="img-responsive" />

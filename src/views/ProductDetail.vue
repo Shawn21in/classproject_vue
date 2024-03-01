@@ -12,7 +12,7 @@
         <div class="m_pic">
           <img
             id="zoom_03"
-            :src="url + 'images/product/' + img"
+            :src="url + 'images/product/M/' + img"
             :data-zoom-image="url + 'images/product/' + img"
           />
         </div>
@@ -21,9 +21,11 @@
             <li v-for="item in photo" :key="item.id">
               <a
                 href="#"
-                :data-image="url + 'images/product/' + item.photo"
+                :data-image="url + 'images/product/M/' + item.photo"
                 :data-zoom-image="url + 'images/product/' + item.photo"
-                ><img id="zoom_03" :src="url + 'images/product/' + item.photo"
+                ><img
+                  id="zoom_03"
+                  :src="url + 'images/product/S/' + item.photo"
               /></a>
             </li>
           </ul>
@@ -97,14 +99,9 @@
   </div>
   <h2 class="main_title">關於好茶</h2>
   <div class="product_int">
-    <div class="int_img"><img src="/img/product_int.jpg" /></div>
-    <div class="int_text">
-      <p>
-        xx身兼茶農與茶商，主打海外市場。產品含各式烏龍茶紅茶、綠茶、不同海拔茶區，在xx都可以找到你想要的好茶！
-        與經驗老道的茶師傅合作、所選茶葉品質穩定。茶葉均通過TTB台茶檢驗，無農藥殘留。全世界最好的烏龍茶，大禹嶺茶自產自銷，絕對無假貨之疑慮。熟知市場行情，第一手茶葉進貨，進貨價格較低。
-      </p>
-    </div>
-    <div class="int_video">
+    <div v-html="content"></div>
+    <div class="int_text"></div>
+    <!-- <div class="int_video">
       <div class="video-container">
         <iframe
           allowfullscreen=""
@@ -112,7 +109,7 @@
           src="https://www.youtube.com/embed/cdo7xnT5g1U"
         ></iframe>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -128,6 +125,7 @@ export default {
       spec: [],
       product: "",
       shop: [],
+      content: "",
       type_layer1_name: "",
       url: this.$img,
       img: "",
@@ -138,6 +136,7 @@ export default {
     this.getPhoto();
     this.getSpec();
     this.getShop();
+    this.getContent();
     this.getType_layer1();
   },
   methods: {
@@ -166,6 +165,13 @@ export default {
       const res = await axios.get(this.$api + all.getShop + "/" + this.id);
       if (res.status == 200) {
         this.shop = res.data;
+      }
+    },
+    async getContent() {
+      const res = await axios.get(this.$api + all.getContent + "/" + this.id);
+      console.log(res);
+      if (res.status == 200) {
+        this.content = res.data.content;
       }
     },
     async getType_layer1() {

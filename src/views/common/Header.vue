@@ -71,9 +71,11 @@
               <p class="nav_p">好茶</p></a
             >
             <ul class="dropdown-menu">
-              <li><a href="productlist_1.html">四角茶包</a></li>
-              <li><a href="productlist_2.html">原葉茶包</a></li>
-              <li><a href="productlist_3.html">嚴選茶葉</a></li>
+              <li v-for="item in type_layer1" :key="item.id">
+                <a href="#" @click="list(item.id)">{{
+                  item.type_layer1_name
+                }}</a>
+              </li>
             </ul>
           </li>
           <li>
@@ -103,3 +105,34 @@
     </div>
   </nav>
 </template>
+<script>
+import axios from "axios";
+import all from "@/service/all";
+
+export default {
+  name: "header",
+  data() {
+    return {
+      type_layer1: [],
+    };
+  },
+  mounted() {
+    this.getFrontType_layer1();
+  },
+  methods: {
+    async getFrontType_layer1() {
+      const res = await axios.get(this.$api + all.getFrontType_layer1);
+      if (res.status == 200) {
+        this.type_layer1 = res.data;
+        //  window.sessionStorage.setItem("type_layer1",JSON.stringify(res.data));
+      }
+    },
+    list(type_layer1) {
+      this.$router.push({
+        name: "productList",
+        params: { type_layer1: type_layer1 },
+      });
+    },
+  },
+};
+</script>
